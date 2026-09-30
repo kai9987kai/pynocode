@@ -1,21 +1,16 @@
 # Security Policy
 
-## Supported Versions
+## Supported versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+Only the latest version of `main.html` on the `main` branch receives fixes.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+## How the builder handles your data
 
-## Reporting a Vulnerability
+- PyNoCode Builder is a single static HTML file. It has no server and no accounts, and it collects no analytics.
+- Your project is autosaved to your own browser's `localStorage`. **Save** and **Download .py** create files on your machine only.
+- The only network requests happen when you click **Check syntax** / **Check Python**. That downloads Pyodide (CPython compiled to WebAssembly) from `cdn.jsdelivr.net`, and pyflakes from PyPI, so the generated code can be compiled locally in your browser. The code itself is never uploaded.
+- Python you type in the **Code** tab is copied verbatim into the exported file and runs when *you* run that file. Only open or run `.py` and `.pynocode.json` files from sources you trust.
 
-Use this section to tell people how to report a vulnerability.
+## Reporting a vulnerability
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+Please report security issues privately through GitHub's **Report a vulnerability** button on the repository's *Security* tab, rather than in a public issue. Include steps to reproduce and the browser you used. You should get an acknowledgement within 7 days. Once a fix is available it will be published and credited to you, unless you would rather stay anonymous.
